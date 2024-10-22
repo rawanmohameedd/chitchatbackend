@@ -10,12 +10,7 @@ const fileUpload = require("express-fileupload");
 const MessageRoutes = require("./routes/MessagesRoutes");
 const userRoutes = require("./routes/userRoutes");
 
-app.use(
-  cors({
-    origin: ["http://localhost:5174", "http://localhost:5173", "https://chitchatbackend-jade.vercel.app"], // frontend URL
-    credentials: true, // Allows cookies to be sent/received
-  })
-);
+app.use(cors());
 
 // middleware:
 app.use(express.json()); // parses an incomming JSON object into JavaScript
