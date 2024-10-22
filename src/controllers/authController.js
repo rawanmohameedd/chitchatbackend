@@ -5,6 +5,9 @@ const { uploadPhoto } = require("../utils/cloudinary");
 const { generateToken } = require("../utils/generateToken");
 
 const signup = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   const { email, userName, password } = req.body;
   try {
     const profilePicture = `https://thumbs.dreamstime.com/b/default-profile-picture-avatar-photo-placeholder-vector-illustration-default-profile-picture-avatar-photo-placeholder-vector-189495158.jpg`;
@@ -26,6 +29,9 @@ const signup = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');  // Allow all origins
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   const { email, password } = req.body;
   try {
     const user = await User.login(email, password);
